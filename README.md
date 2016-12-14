@@ -1,8 +1,15 @@
-# Install Ubuntu Bash, Node, Mongodb, and MySQL on Windows 10
+---
+layout: post
+title: Install Ubuntu Bash, Node, Mongodb, and MySQL on Windows 10
+date: 2016-12-13
+tags: windows10,bash,ubuntu,install,node,mysql,mongodb,linux
+---
 
 This is a setup guide use Ubuntu Bash on Windows and Linux binaries for applications (versus native Windows applications). This guide has been tested on 64-bit Windows on Windows 10. We're going to use the _apt_ package manager to install a few tools. You might remember using `brew` to do this in Mac OS X earlier during the cohort. Because each environment and application is different, we have provided a few scripts in this repository to help make life easier. Everyone will need to follow steps one; however, steps two, three, and four may be used as needed.
 
 > **Requirements**: Your computer must be running Windows 10 and have a 64-bit processor. The Ubuntu Bash is not available on any prior versions of Windows. 
+
+After completing this installation, note that Bash has a shortcut to to `C:\Windows\System32\bash.exe`. This is actually a symlink to `C:\Windows\WinSxS\amd64_microsoft-windows-lxss-bash_31bf3856ad364e35_10.0.14393.351_none_79648c7a5a883c6f\bash.exe` - in case you want to change out the terminal in an IDE (such as WebStorm).
 
 ## Outline
 
@@ -19,32 +26,25 @@ This is a setup guide use Ubuntu Bash on Windows and Linux binaries for applicat
 
 #### Turn on Developer Mode
 
-* Open **Settings** 
-* Search for `Developer` ...
-* Select `For Developer Settings`
-* _Note: this is the Windows 10 settings app, not Control Panel_
-* Select 'Developer Mode' to enable it
-* Restart if prompted
+* Open the **Settings** application. Note: select the Windows 10 settings app, not Control Panel.
+* Search for `Developer` and select `For Developer Settings`. 
+* Select 'Developer Mode' to enable it and restart if prompted.
 
 #### Install Bash
 
-* Open **Control Panel**
-* Search for `Windows Features`
-* Select `Turn Windows Features On/Off`
-* _This may be alternatively found under the Programs and Features category_
-* Enable (or verify) that **Windows Subsystem for Linux** is enabled.
-* Restart if prompted
+* Open **Control Panel**.
+* Search for `Windows Features` and select `Turn Windows Features On/Off`. This may be alternatively found under the Programs and Features category.
+* Enable (or verify) that **Windows Subsystem for Linux** is enabled and restart if prompted.
 
 #### Enable Command Line access
 
-* Open Powershell with Administrative access
-* _You may do this by right-clicking on Powershell and running as administrator_
+* Open Powershell with Administrative access.
+* _You may do this by right-clicking on Powershell and running as administrator_.
 * Inside of Powershell, run the following command:
 * `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
 * You may be prompted to accept a EULA or install additional features. Say `y` (yes).
 * You will need to create a Linux user. This is saved in the traditional user area.
-* Name your user and add a password.
-* _For Linux newbies - you won't be able to see the keys for your password; just hit enter when done_.
+* Name your user and add a password. Linux newbies - you won't be able to see the keys for your password; just hit enter when done.
 * Follow any additional prompts if required.
 
 #### Creating a Bash Shortcut
@@ -53,8 +53,11 @@ This is a setup guide use Ubuntu Bash on Windows and Linux binaries for applicat
 * Right-click and select **Pin to Start** or **Create Shortcut**
 *  From here on out, all commands will be ran inside of Ubuntu Bash.
 * We'll install Git and some essential build tools for Linux. Run these commands:
-* `apt install git`
-* `apt install build-essential`
+
+```
+apt install git
+apt install build-essential
+```
 
 ## 2. Installing Node.js (LTS v6.0)
 
