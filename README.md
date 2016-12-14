@@ -1,4 +1,4 @@
-# Windows 10 Bash + Node Environment Setup
+# Windows 10 Bash + Node, Mongodb, and MySQL Environment Setup
 
 Setup guide + script to setup Ubuntu Bash on Windows.
 
