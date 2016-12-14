@@ -9,7 +9,7 @@ Setup guide + script to setup Ubuntu Bash on Windows.
   b. Install Bash
   c. Enable Command Line access
   d. Creating a Bash shortcut
-2. 
+2. Installing Node.js (LTS v6.0)
 
 ## 1. Set Windows to Developer Mode
 
