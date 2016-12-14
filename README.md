@@ -96,3 +96,9 @@ You should see you node version 6 or higher and npm version 3 or higher.
 * `sudo apt install mongodb-org-tools`
 * To start your server, you can run the `sudo mongod` command.
 * In another terminal window/tab, you can connect to your server using `mongo`.
+
+#### Sources
+
+* https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-ubuntu/#run-mongodb-community-edition
+* https://msdn.microsoft.com/commandline/wsl/install_guide
+* https://msdn.microsoft.com/en-us/commandline/wsl/install_guide
