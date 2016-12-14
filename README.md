@@ -1,6 +1,7 @@
-# Windows 10 Bash + Node, Mongodb, and MySQL Environment Setup
+# Install Ubuntu Bash, Node, Mongodb, and MySQL on Windows 10
 
-Setup guide + script to setup Ubuntu Bash on Windows.
+New Macbook Pro not doing it for you (cue tomato throwing)? This is a setup guide use Ubuntu Bash on Windows and Linux binaries for applications (versus native Windows applications). This guide has been tested on 64-bit Windows on Windows 10. We're going to use the _apt_ package manager to install a few tools. You might remember using `brew` to do this in Mac OS X earlier during the cohort. Because each environment and application is different, we have provided a few scripts in this repository to help make life easier. 
+
 
 ## Outline
 
@@ -11,7 +12,7 @@ Setup guide + script to setup Ubuntu Bash on Windows.
   - Creating a Bash shortcut
 2. Installing Node.js (LTS v6.0)
 3. Installing MongoDB
-4. Changing your WebStorm Shell Preferences
+4. Installing MySQL
 
 ## 1. Set Windows to Developer Mode
 
@@ -49,7 +50,10 @@ Setup guide + script to setup Ubuntu Bash on Windows.
 
 * Search for the **Bash** application your computer.
 * Right-click and select **Pin to Start** or **Create Shortcut**
-* You'll be using the Bash terminal from here on out!
+*  From here on out, all commands will be ran inside of Ubuntu Bash.
+* We'll install Git and some essential build tools for Linux. Run these commands:
+* `apt install git`
+* `apt install build-essential`
 
 ## 2. Installing Node.js (LTS v6.0)
 
@@ -96,6 +100,43 @@ You should see you node version 6 or higher and npm version 3 or higher.
 * `sudo apt install mongodb-org-tools`
 * To start your server, you can run the `sudo mongod` command.
 * In another terminal window/tab, you can connect to your server using `mongo`.
+
+## Installing MySQL
+
+MySQL requires that you add a link to Oracle's repositories. It is not hosted publically on `apt`. First, we'll grab that repository, add it to `apt`, and update `apt` so we can find MySQL.
+
+```bash
+# get the MySQL repository information
+wget http://dev.mysql.com/get/mysql-apt-config_0.8.0-1_all.deb
+# install it
+sudo dpkg -i mysql-apt-config_0.8.0-1_all.deb
+# you'll be provided a GUI option; select the default options (5.7)
+# and exit. this is ok! nothing flashy happens here.
+# update apt so it can point to the MySQL repository
+sudo apt update
+```
+
+Once that is installed, we'll install MySQL.
+
+```bash
+# install a C library that Ruby uses to build the mysql2 gem with
+sudo apt-get install libmysqlclient-dev
+# install mysql
+sudo apt install mysql-server
+```
+
+Once installed, we can control MySQL with the following commands:
+
+```bash
+# start
+sudo service mysql start
+# stop
+sudo service mysql stop
+# info
+sudo service mysql status
+```
+
+To login to MySQL, you may do so with `mysql -p`. `-p` specifies that the user is using a password (so it requests you enter one). 
 
 #### Sources
 
