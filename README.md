@@ -10,6 +10,8 @@ Setup guide + script to setup Ubuntu Bash on Windows.
   - Enable Command Line access
   - Creating a Bash shortcut
 2. Installing Node.js (LTS v6.0)
+3. Installing MongoDB
+4. Changing your WebStorm Shell Preferences
 
 ## 1. Set Windows to Developer Mode
 
@@ -71,3 +73,26 @@ node -v
 ```
 
 You should see you node version 6 or higher and npm version 3 or higher.
+
+## 3. Installing MongoDB 3.x
+
+> This process is a bit complicated; code snippets are available to copy and paste as individual lines.
+
+* Create directories for your MongoDB databases:
+* `sudo mkdir /data`
+* `sudo mkdir /data/db`
+* Import the public key used by the package management system
+* `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927`
+* Create a list file for MongoDB
+* `echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list`
+* Reload local package database
+* `sudo apt update`
+* Install MongoDB Specifically
+* `sudo apt install mongodb-org`
+* Install all components of MongoDB
+* `sudo apt install mongodb-org-server`
+* `sudo apt install mongodb-org-shell`
+* `mongodb-org-mongos`
+* `sudo apt install mongodb-org-tools`
+* To start your server, you can run the `sudo mongod` command.
+* In another terminal window/tab, you can connect to your server using `mongo`.
