@@ -1,7 +1,6 @@
 # Install Ubuntu Bash, Node, Mongodb, and MySQL on Windows 10
 
-New Macbook Pro not doing it for you (cue tomato throwing)? This is a setup guide use Ubuntu Bash on Windows and Linux binaries for applications (versus native Windows applications). This guide has been tested on 64-bit Windows on Windows 10. We're going to use the _apt_ package manager to install a few tools. You might remember using `brew` to do this in Mac OS X earlier during the cohort. Because each environment and application is different, we have provided a few scripts in this repository to help make life easier. 
-
+This is a setup guide use Ubuntu Bash on Windows and Linux binaries for applications (versus native Windows applications). This guide has been tested on 64-bit Windows on Windows 10. We're going to use the _apt_ package manager to install a few tools. You might remember using `brew` to do this in Mac OS X earlier during the cohort. Because each environment and application is different, we have provided a few scripts in this repository to help make life easier. Everyone will need to follow steps one; however, steps two, three, and four may be used as needed.
 
 ## Outline
 
@@ -80,7 +79,8 @@ You should see you node version 6 or higher and npm version 3 or higher.
 
 ## 3. Installing MongoDB 3.x
 
-> This process is a bit complicated; code snippets are available to copy and paste as individual lines.
+MongoDB requires that you add a link to their repositories. It is not hosted publically on `apt`. First, we'll grab that repository, add it to `apt`, and update `apt` so we can install the parts of MySQL that we need.
+
 
 * Create directories for your MongoDB databases:
 * `sudo mkdir /data`
@@ -98,12 +98,15 @@ You should see you node version 6 or higher and npm version 3 or higher.
 * `sudo apt install mongodb-org-shell`
 * `mongodb-org-mongos`
 * `sudo apt install mongodb-org-tools`
-* To start your server, you can run the `sudo mongod` command.
-* In another terminal window/tab, you can connect to your server using `mongo`.
+* To start your server:
+* `sudo service mongodb start`
+* Alternatively, you can run the `sudo mongod` command.
 
-## Installing MySQL
+To login to MongoDB, you may do so with `mongo`. 
 
-MySQL requires that you add a link to Oracle's repositories. It is not hosted publically on `apt`. First, we'll grab that repository, add it to `apt`, and update `apt` so we can find MySQL.
+## 4. Installing MySQL
+
+MySQL requires that you add a link to Oracle's repositories. It is not hosted publically on `apt`. First, we'll grab that repository, add it to `apt`, and update `apt` so we can find MySQL. This guide installs MySQL 5.7.
 
 ```bash
 # get the MySQL repository information
