@@ -128,7 +128,7 @@ Once that is installed, we'll install MySQL.
 
 ```bash
 # install a C library that Ruby uses to build the mysql2 gem with
-sudo apt-get install libmysqlclient-dev
+sudo apt install libmysqlclient-dev
 # install mysql
 sudo apt install mysql-server
 ```
